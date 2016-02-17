@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WeChatMomentStat</string>
+    <string name="not_rooted">没有root权限！</string>
+    <string name="wechat_version_label">微信版本</string>
+    <string name="wechat_version_supported">恭喜，支持该微信版本</string>
+    <string name="wechat_version_unsupported">暂不支持该微信版本</string>
+    <string name="wechat_not_found">找不到微信</string>
+    <string name="supported_wechat_versions">支持的微信版本</string>
+    <string name="launch">运行</string>
+</resources>
