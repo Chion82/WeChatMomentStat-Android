@@ -3,7 +3,10 @@ package moe.chionlab.wechatmomentstat.gui;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
@@ -71,6 +74,23 @@ public class Task {
         } catch (Exception e) {
             Toast.makeText(context, R.string.not_rooted, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public String getWeChatVersion() {
+        PackageInfo pInfo = null;
+        try {
+            pInfo = context.getPackageManager().getPackageInfo(Config.WECHAT_PACKAGE, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e("wechatmomentstat", e.getMessage());
+            return null;
+        }
+        String wechatVersion = "";
+        if (pInfo != null) {
+            wechatVersion = pInfo.versionName;
+            Config.initWeChatVersion(wechatVersion);
+            return wechatVersion;
+        }
+        return null;
     }
 
 }

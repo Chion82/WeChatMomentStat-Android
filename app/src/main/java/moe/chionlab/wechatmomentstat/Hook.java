@@ -2,11 +2,13 @@ package moe.chionlab.wechatmomentstat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
+import moe.chionlab.wechatmomentstat.gui.MomentStatActivity;
 
 /**
  * Created by chiontang on 2/11/16.
@@ -38,6 +40,8 @@ public class Hook {
         getClasses(lpparam.classLoader);
         SnsReader snsReader = new SnsReader(SnsDetail, SnsDetailParser, SnsObject);
         snsReader.run();
+        Intent intent = new Intent(wechatContext, MomentStatActivity.class);
+        wechatContext.startActivity(intent);
     }
 
     protected void initWeChatVersion(Object wechatActivity, String packageName) throws Throwable{

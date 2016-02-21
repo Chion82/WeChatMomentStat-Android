@@ -7,4 +7,7 @@
     <string name="wechat_not_found">找不到微信</string>
     <string name="supported_wechat_versions">支持的微信版本</string>
     <string name="launch">运行</string>
+    <string name="description_0">WeChatMomentStat可分析和导出你的朋友圈数据。</string>
+    <string name="description_1">请确认已允许本APP获得root权限。</string>
+    <string name="description_2">点击“运行”开始分析你的朋友圈。这将需要重启微信。</string>
 </resources>
