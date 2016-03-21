@@ -2,6 +2,7 @@ package moe.chionlab.wechatmomentstat;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,8 +14,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-import de.robv.android.xposed.XposedBridge;
 import moe.chionlab.wechatmomentstat.Model.SnsInfo;
 
 /**
@@ -37,7 +36,7 @@ public class SnsReader {
     }
 
     public void run() throws Throwable {
-        XposedBridge.log("Querying Sns database.");
+        Log.d("wechatmomentstat", "Querying Sns database.");
         queryDatabase();
         saveToJSONFile();
     }
@@ -45,7 +44,7 @@ public class SnsReader {
     protected void queryDatabase() throws Throwable {
         String dbPath = Config.EXT_DIR + "/SnsMicroMsg.db";
         if (!new File(dbPath).exists()) {
-            XposedBridge.log("DB file not found");
+            Log.e("wechatmomentstat", "DB file not found");
             return;
         }
         SQLiteDatabase database = SQLiteDatabase.openDatabase(dbPath, null, 0);
@@ -64,7 +63,7 @@ public class SnsReader {
             this.currentUserId = cursor.getString(cursor.getColumnIndex("userName"));
         }
         cursor.close();
-        XposedBridge.log("Current userID=" + this.currentUserId);
+        Log.d("wechatmomentstat", "Current userID=" + this.currentUserId);
     }
 
     protected void addSnsInfoFromCursor(Cursor cursor) throws Throwable {
@@ -145,7 +144,7 @@ public class SnsReader {
                 snsListJSON.put(snsJSON);
 
             } catch (Exception exception) {
-                XposedBridge.log(exception.getMessage());
+                Log.e("wechatmomentstat", "exception", exception);
             }
         }
 
@@ -154,7 +153,7 @@ public class SnsReader {
             try {
                 jsonFile.createNewFile();
             } catch (IOException e) {
-                XposedBridge.log(e.getMessage());
+                Log.e("wechatmomentstat", "exception", e);
             }
         }
 
@@ -164,7 +163,7 @@ public class SnsReader {
             bw.write(snsListJSON.toString());
             bw.close();
         } catch (IOException e) {
-            XposedBridge.log(e.getMessage());
+            Log.e("wechatmomentstat", "exception", e);
         }
     }
 

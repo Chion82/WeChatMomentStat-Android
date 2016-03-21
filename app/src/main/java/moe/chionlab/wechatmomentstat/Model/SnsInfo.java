@@ -1,8 +1,8 @@
 package moe.chionlab.wechatmomentstat.Model;
 
-import java.util.ArrayList;
+import android.util.Log;
 
-import de.robv.android.xposed.XposedBridge;
+import java.util.ArrayList;
 
 /**
  * Created by chiontang on 2/8/16.
@@ -21,22 +21,22 @@ public class SnsInfo {
     public boolean isCurrentUser = false;
 
     public void print() {
-        XposedBridge.log("================================");
-        XposedBridge.log("id: " + this.id);
-        XposedBridge.log("Author: " + this.authorName);
-        XposedBridge.log("Content: " + this.content);
-        XposedBridge.log("Likes:");
+        Log.d("wechatmomentstat", "================================");
+        Log.d("wechatmomentstat", "id: " + this.id);
+        Log.d("wechatmomentstat", "Author: " + this.authorName);
+        Log.d("wechatmomentstat", "Content: " + this.content);
+        Log.d("wechatmomentstat", "Likes:");
         for (int i=0; i<likes.size();i++) {
-            XposedBridge.log(likes.get(i).userName);
+            Log.d("wechatmomentstat", likes.get(i).userName);
         }
-        XposedBridge.log("Comments:");
+        Log.d("wechatmomentstat", "Comments:");
         for (int i=0; i<comments.size();i++) {
             Comment comment = comments.get(i);
-            XposedBridge.log("CommentAuthor: " + comment.authorName + "; CommentContent: " + comment.content + "; ToUser: " + comment.toUser);
+            Log.d("wechatmomentstat", "CommentAuthor: " + comment.authorName + "; CommentContent: " + comment.content + "; ToUser: " + comment.toUser);
         }
-        XposedBridge.log("Media List:");
+        Log.d("wechatmomentstat", "Media List:");
         for (int i=0;i<mediaList.size();i++) {
-            XposedBridge.log(mediaList.get(i));
+            Log.d("wechatmomentstat", mediaList.get(i));
         }
     }
 
