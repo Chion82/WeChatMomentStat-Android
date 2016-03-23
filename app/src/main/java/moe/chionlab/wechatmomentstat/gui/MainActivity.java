@@ -1,6 +1,7 @@
 package moe.chionlab.wechatmomentstat.gui;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,13 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import moe.chionlab.wechatmomentstat.R;
+import moe.chionlab.wechatmomentstat.SnsStat;
 import moe.chionlab.wechatmomentstat.Task;
+import moe.chionlab.wechatmomentstat.common.Share;
 
 
 public class MainActivity extends AppCompatActivity {
 
     Task task = null;
+    SnsStat snsStat = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    class RunningTask extends AsyncTask<Void, Integer, Long> {
+    class RunningTask extends AsyncTask<Void, Void, Void> {
 
         Throwable error = null;
 
         @Override
-        protected Long doInBackground(Void... params) {
+        protected Void doInBackground(Void... params) {
             try {
                 task.copySnsDB();
                 task.initSnsReader();
                 task.snsReader.run();
+                snsStat = new SnsStat(task.snsReader.getSnsList());
             } catch (Throwable e) {
                 this.error = e;
             }
@@ -55,14 +61,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Long aLong) {
-            super.onPostExecute(aLong);
+        protected void onPostExecute(Void voidParam) {
+            super.onPostExecute(voidParam);
             ((Button)findViewById(R.id.launch_button)).setText(R.string.launch);
             ((Button) findViewById(R.id.launch_button)).setEnabled(true);
             if (this.error != null) {
                 Toast.makeText(MainActivity.this, R.string.not_rooted, Toast.LENGTH_LONG).show();
                 Log.e("wechatmomentstat", "exception", this.error);
+                return;
             }
+            Share.snsData = snsStat;
+            Intent intent = new Intent(MainActivity.this, MomentStatActivity.class);
+            startActivity(intent);
         }
     }
 

@@ -139,9 +139,6 @@ public class Task {
                     null,
                     ClassLoader.getSystemClassLoader());
 
-            if (cl == null) {
-                Log.e("wechatmomentstat", "cl==null");
-            }
             Class SnsDetailParser = null;
             Class SnsDetail = null;
             Class SnsObject = null;

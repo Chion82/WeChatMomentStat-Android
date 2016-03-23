@@ -41,6 +41,10 @@ public class SnsReader {
         saveToJSONFile();
     }
 
+    public ArrayList<SnsInfo> getSnsList() {
+        return this.snsList;
+    }
+
     protected void queryDatabase() throws Throwable {
         String dbPath = Config.EXT_DIR + "/SnsMicroMsg.db";
         if (!new File(dbPath).exists()) {

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">WeChatMomentStat</string>
-    <string name="not_rooted">没有root权限！</string>
+    <string name="not_rooted">查询微信缓存失败。请允许root权限后重试。</string>
     <string name="wechat_version_label">微信版本</string>
     <string name="wechat_version_supported">恭喜，支持该微信版本</string>
     <string name="wechat_version_unsupported">暂不支持该微信版本</string>
@@ -11,4 +11,20 @@
     <string name="description_1">请确认已允许本APP获得root权限。</string>
     <string name="description_2">点击“运行”开始分析你的微信朋友圈。这将需要几分钟时间。</string>
     <string name="exporting_sns">正在导出朋友圈数据...</string>
+    <string name="stat_title">%s 的朋友圈统计数据</string>
+    <string name="from_date">从 %s 至今：</string>
+    <string name="my_sent_moments">我发送了 %d 条朋友圈</string>
+    <string name="my_sent_photos">我发了 %d 张图片</string>
+    <string name="my_like_numbers">我点了 %d 个赞</string>
+    <string name="my_liked_numbers">我被点赞 %d 次</string>
+    <string name="my_received_comments">我的朋友圈收到了 %d 条评论</string>
+    <string name="my_sent_comments">我发出了 %d 条评论</string>
+    <string name="my_replied_comments">我的评论被回复 %d 次</string>
+    <string name="sent_moment_rank">发朋友圈最多的前5名：</string>
+    <string name="sent_photo_rank">发图狂魔前5名：</string>
+    <string name="like_rank">点赞狂魔前5名：</string>
+    <string name="liked_rank">获得最多赞的前5名：</string>
+    <string name="sent_comment_rank">写评论最多的前5名：</string>
+    <string name="received_comment_rank">朋友圈评论数最多的前5名：</string>
+    <string name="cold_rank">经常被无视的前5名（发评论数÷收到回复数，发评论数>=15）:</string>
 </resources>
