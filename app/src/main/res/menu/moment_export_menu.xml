@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:title="@string/filter"
+        android:id="@+id/filter_menu_btn"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="@string/export"
+        android:id="@+id/export_confirm_btn"
+        app:showAsAction="ifRoom" />
+
+</menu>

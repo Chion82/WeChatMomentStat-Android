@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="@string/description_0" />
 
     <TextView
@@ -32,6 +32,14 @@
         android:layout_below="@id/description_textview_1"
         android:text="@string/description_2"
         android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description_html_textview"
+        android:layout_below="@id/description_textview_2"
+        android:layout_marginTop="20dp"
+        android:linksClickable="true" />
 
     <Button
         android:layout_width="wrap_content"

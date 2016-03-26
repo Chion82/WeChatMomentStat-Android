@@ -1,5 +1,6 @@
 package moe.chionlab.wechatmomentstat.common;
 
+
 import moe.chionlab.wechatmomentstat.SnsStat;
 
 /**

@@ -36,13 +36,15 @@ public class SnsStat {
             SnsInfo snsInfo = snsList.get(i);
             if (snsInfo.isCurrentUser) {
                 this.currentUserId = snsInfo.authorId;
-                this.currentUserName = snsInfo.authorName;
+                if (this.currentUserName.equals(""))
+                    this.currentUserName = snsInfo.authorName;
             }
             if (earliestTimestamp == 0 || snsInfo.timestamp < earliestTimestamp) {
                 earliestTimestamp = snsInfo.timestamp;
             }
             UserSnsInfo userSnsInfo = getUserSnsInfo(snsInfo.authorId);
-            userSnsInfo.userName = snsInfo.authorName;
+            if (userSnsInfo.userName == null)
+                userSnsInfo.userName = snsInfo.authorName;
             userSnsInfo.snsList.add(snsInfo);
             userSnsInfo.likedCount += snsInfo.likes.size();
             userSnsInfo.receivedCommentCount += snsInfo.comments.size();

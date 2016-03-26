@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/toggle_select_all"
+        android:id="@+id/toggle_select_all_menu_btn"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="@string/done"
+        android:id="@+id/user_select_done_menu_btn"
+        app:showAsAction="ifRoom"/>
+
+</menu>

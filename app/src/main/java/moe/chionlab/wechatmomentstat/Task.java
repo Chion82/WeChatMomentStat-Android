@@ -9,13 +9,21 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import dalvik.system.DexClassLoader;
+import moe.chionlab.wechatmomentstat.Model.SnsInfo;
 
 /**
  * Created by chiontang on 2/17/16.
@@ -61,10 +69,12 @@ public class Task {
         outputStream.writeBytes("mount -o remount,rw " + dataDir + "\n");
         outputStream.writeBytes("cd " + dataDir + "/data/" + Config.WECHAT_PACKAGE + "/MicroMsg\n");
         outputStream.writeBytes("ls | while read line; do cp ${line}/SnsMicroMsg.db " + destDir + "/ ; done \n");
+        outputStream.writeBytes("sleep 1\n");
         outputStream.writeBytes("chmod 777 " + destDir + "/SnsMicroMsg.db\n");
         outputStream.writeBytes("exit\n");
         outputStream.flush();
         outputStream.close();
+        Thread.sleep(1000);
     }
 
     public void testRoot() {
@@ -147,6 +157,79 @@ public class Task {
             SnsObject = cl.loadClass(Config.PROTOCAL_SNS_OBJECT_CLASS);
             snsReader = new SnsReader(SnsDetail, SnsDetailParser, SnsObject);
         } catch (Throwable e) {
+            Log.e("wechatmomentstat", "exception", e);
+        }
+    }
+
+    public static void saveToJSONFile(ArrayList<SnsInfo> snsList, String fileName, boolean onlySelected) {
+        JSONArray snsListJSON = new JSONArray();
+
+        for (int snsIndex=0; snsIndex<snsList.size(); snsIndex++) {
+            SnsInfo currentSns = snsList.get(snsIndex);
+            if (!currentSns.ready) {
+                continue;
+            }
+            if (onlySelected && !currentSns.selected) {
+                continue;
+            }
+            JSONObject snsJSON = new JSONObject();
+            JSONArray commentsJSON = new JSONArray();
+            JSONArray likesJSON = new JSONArray();
+            JSONArray mediaListJSON = new JSONArray();
+            try {
+                snsJSON.put("isCurrentUser", currentSns.isCurrentUser);
+                snsJSON.put("snsId", currentSns.id);
+                snsJSON.put("authorName", currentSns.authorName);
+                snsJSON.put("authorId", currentSns.authorId);
+                snsJSON.put("content", currentSns.content);
+                for (int i = 0; i < currentSns.comments.size(); i++) {
+                    JSONObject commentJSON = new JSONObject();
+                    commentJSON.put("isCurrentUser", currentSns.comments.get(i).isCurrentUser);
+                    commentJSON.put("authorName", currentSns.comments.get(i).authorName);
+                    commentJSON.put("authorId", currentSns.comments.get(i).authorId);
+                    commentJSON.put("content", currentSns.comments.get(i).content);
+                    commentJSON.put("toUserName", currentSns.comments.get(i).toUser);
+                    commentJSON.put("toUserId", currentSns.comments.get(i).toUserId);
+                    commentsJSON.put(commentJSON);
+                }
+                snsJSON.put("comments", commentsJSON);
+                for (int i = 0; i < currentSns.likes.size(); i++) {
+                    JSONObject likeJSON = new JSONObject();
+                    likeJSON.put("isCurrentUser", currentSns.likes.get(i).isCurrentUser);
+                    likeJSON.put("userName", currentSns.likes.get(i).userName);
+                    likeJSON.put("userId", currentSns.likes.get(i).userId);
+                    likesJSON.put(likeJSON);
+                }
+                snsJSON.put("likes", likesJSON);
+                for (int i = 0; i < currentSns.mediaList.size(); i++) {
+                    mediaListJSON.put(currentSns.mediaList.get(i));
+                }
+                snsJSON.put("mediaList", mediaListJSON);
+                snsJSON.put("rawXML", currentSns.rawXML);
+                snsJSON.put("timestamp", currentSns.timestamp);
+
+                snsListJSON.put(snsJSON);
+
+            } catch (Exception exception) {
+                Log.e("wechatmomentstat", "exception", exception);
+            }
+        }
+
+        File jsonFile = new File(fileName);
+        if (!jsonFile.exists()) {
+            try {
+                jsonFile.createNewFile();
+            } catch (IOException e) {
+                Log.e("wechatmomentstat", "exception", e);
+            }
+        }
+
+        try {
+            FileWriter fw = new FileWriter(jsonFile.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(snsListJSON.toString());
+            bw.close();
+        } catch (IOException e) {
             Log.e("wechatmomentstat", "exception", e);
         }
     }

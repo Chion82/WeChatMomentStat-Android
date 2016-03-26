@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">WeChatMomentStat</string>
+    <string name="not_rooted">Failed to access WeChat SQLite Cache. Please grant WeChatMomentStat root access and retry.</string>
+    <string name="wechat_version_label">WeChat version</string>
+    <string name="wechat_version_supported">WeChat version supported</string>
+    <string name="wechat_version_unsupported">WeChat version not supported</string>
+    <string name="wechat_not_found">WeChat not found</string>
+    <string name="supported_wechat_versions">Supported WeChat version</string>
+    <string name="launch">LAUNCH</string>
+    <string name="description_0">WeChatMomentStat helps you analyze and export your WeChat moments.</string>
+    <string name="description_1">Please grant this app root access.</string>
+    <string name="description_2">Click "LAUNCH" to start accessing your WeChat moments data. It may take minutes to finish.</string>
+    <string name="exporting_sns">Exporting WeChat moments...</string>
+    <string name="stat_title">%s \'s Moment Statistics</string>
+    <string name="from_date">From %s :</string>
+    <string name="my_sent_moments">I have sent %d moments.</string>
+    <string name="my_sent_photos">I have post %d photos.</string>
+    <string name="my_like_numbers">I have sent %d likes.</string>
+    <string name="my_liked_numbers">I have received %d likes.</string>
+    <string name="my_received_comments">My moments have received %d comments.</string>
+    <string name="my_sent_comments">I have written %d comments.</string>
+    <string name="my_replied_comments">I have received %d comment replies.</string>
+    <string name="sent_moment_rank">Top 5 of friends who sent most moments:</string>
+    <string name="sent_photo_rank">Top 5 of friends who post most photos:</string>
+    <string name="like_rank">Top 5 of friends who sent most likes:</string>
+    <string name="liked_rank">Top 5 of friends who received most likes:</string>
+    <string name="sent_comment_rank">Top 5 of friends who wrote most comments:</string>
+    <string name="received_comment_rank">Top 5 of friends who received most comments:</string>
+    <string name="cold_rank">Top 5 of friends who were usually ignored:</string>
+    <string name="comment_details" formatted="false">(sent %d comments, got %d replies)</string>
+    <string name="export_moments">Export WeChat moment data</string>
+    <string name="share">Share</string>
+    <string name="share_suffix">--From WeChatMomentStat</string>
+    <string name="filter">Filter</string>
+    <string name="filter_by_friends">Filter by friends</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="toggle_select_all">Toggle Select All</string>
+    <string name="user_moment_count">%d moments</string>
+    <string name="export">Export</string>
+    <string name="export_success">All selected moments are exported to %s</string>
+    <string name="description_html">
+        &lt;p&gt;
+        Author：
+        &lt;/p&gt;
+        &lt;p&gt;
+        &lt;a href="https://github.com/Chion82"&gt;Chion82(Chion Tang)&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+        &lt;a href="https://blog.chionlab.moe"&gt;Chion Tang的归宅开发部活动记录&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+        BUG Report:
+        &lt;/p&gt;
+        &lt;p&gt;
+        &lt;a href="https://github.com/Chion82/WeChatMomentStat-Android/issues"&gt;Issue&lt;/a&gt;
+        &lt;/p&gt;
+    </string>
+</resources>

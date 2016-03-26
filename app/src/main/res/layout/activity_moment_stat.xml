@@ -17,11 +17,27 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/export_moments"
+                android:id="@+id/export_moment_btn" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/export_moment_btn"
+                android:layout_marginLeft="10dp"
+                android:text="@string/share"
+                android:id="@+id/share_btn" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/export_moment_btn"
+                android:layout_marginTop="20dp"
                 android:id="@+id/moment_stat_main_textview"
-                />
+                android:text="test" />
 
         </RelativeLayout>
 

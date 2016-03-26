@@ -19,6 +19,7 @@ public class SnsInfo {
     public long timestamp = 0;
     public boolean ready = false;
     public boolean isCurrentUser = false;
+    public boolean selected = true;
 
     public void print() {
         Log.d("wechatmomentstat", "================================");

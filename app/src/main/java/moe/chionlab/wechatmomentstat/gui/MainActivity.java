@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -40,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 new RunningTask().execute();
             }
         });
+
+        TextView descriptionHtmlTextView = (TextView)findViewById(R.id.description_html_textview);
+        descriptionHtmlTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        descriptionHtmlTextView.setText(Html.fromHtml(getResources().getString(R.string.description_html)));
 
     }
 
