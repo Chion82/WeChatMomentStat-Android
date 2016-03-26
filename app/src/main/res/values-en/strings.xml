@@ -11,7 +11,7 @@
     <string name="description_1">Please grant this app root access.</string>
     <string name="description_2">Click "LAUNCH" to start accessing your WeChat moments data. It may take minutes to finish.</string>
     <string name="exporting_sns">Exporting WeChat moments...</string>
-    <string name="stat_title">%s \'s Moment Statistics</string>
+    <string name="stat_title">%s \'s Moments Statistics</string>
     <string name="from_date">From %s :</string>
     <string name="my_sent_moments">I have sent %d moments.</string>
     <string name="my_sent_photos">I have post %d photos.</string>
