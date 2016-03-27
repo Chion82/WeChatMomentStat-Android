@@ -135,7 +135,6 @@ public class Task {
     }
 
     public void initSnsReader() {
-        InputStream assetInputStream = null;
         File outputAPKFile = new File(Config.EXT_DIR + "/wechat.apk");
         if (!outputAPKFile.exists())
             copyAPKFromAssets();

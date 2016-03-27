@@ -28,7 +28,7 @@
     <string name="received_comment_rank">Top 5 of friends who received most comments:</string>
     <string name="cold_rank">Top 5 of friends who were usually ignored:</string>
     <string name="comment_details" formatted="false">(sent %d comments, got %d replies)</string>
-    <string name="export_moments">Export WeChat moment data</string>
+    <string name="export_moments">Export Moments</string>
     <string name="share">Share</string>
     <string name="share_suffix">--From WeChatMomentStat</string>
     <string name="filter">Filter</string>
@@ -53,7 +53,7 @@
         BUG Report:
         &lt;/p&gt;
         &lt;p&gt;
-        &lt;a href="https://github.com/Chion82/WeChatMomentStat-Android/issues"&gt;Issue&lt;/a&gt;
+        &lt;a href="https://github.com/Chion82/WeChatMomentStat-Android/issues"&gt;Issues&lt;/a&gt;
         &lt;/p&gt;
     </string>
 </resources>

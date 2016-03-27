@@ -22,6 +22,8 @@ import moe.chionlab.wechatmomentstat.common.Share;
 
 public class MomentListActivity extends AppCompatActivity {
 
+    public static boolean snsListUpdated = false;
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -68,7 +70,10 @@ public class MomentListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        updateSnsList();
+        if (MomentListActivity.snsListUpdated) {
+            MomentListActivity.snsListUpdated = false;
+            updateSnsList();
+        }
     }
 
     protected void updateSnsList() {

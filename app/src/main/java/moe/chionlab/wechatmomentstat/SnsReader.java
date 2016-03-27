@@ -44,9 +44,10 @@ public class SnsReader {
             Log.e("wechatmomentstat", "DB file not found");
             throw new Exception("DB file not found");
         }
+        snsList.clear();
         SQLiteDatabase database = SQLiteDatabase.openDatabase(dbPath, null, 0);
         getCurrentUserIdFromDatabase(database);
-        Cursor cursor = database.query("SnsInfo", new String[]{"SnsId", "userName", "createTime", "content", "attrBuf"} ,"", new String[]{},"","","","");
+        Cursor cursor = database.query("SnsInfo", new String[]{"SnsId", "userName", "createTime", "content", "attrBuf"} ,"", new String[]{},"","","createTime DESC","");
         while (cursor.moveToNext()) {
             addSnsInfoFromCursor(cursor);
         }

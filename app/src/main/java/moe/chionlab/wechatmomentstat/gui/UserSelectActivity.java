@@ -80,6 +80,7 @@ public class UserSelectActivity extends AppCompatActivity {
         for (int i=0;i<snsList.size();i++) {
             snsList.get(i).selected = getUserCheckBox(snsList.get(i).authorId).isChecked();
         }
+        MomentListActivity.snsListUpdated = true;
         finish();
     }
 
