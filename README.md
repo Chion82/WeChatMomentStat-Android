@@ -4,6 +4,13 @@ WeChatMomentStat is an Android tool which generates your WeChat Moments statisti
 
 WeChatMomentStat是一个安卓平台的工具，可生成你的微信朋友圈统计数据，并可导出朋友圈数据到JSON文件中。需要root权限。支持最新微信版本。
 
+<img src="https://raw.githubusercontent.com/Chion82/WeChatMomentStat-Android/master/demo_pics/demo_1.jpg" width="400px">
+
+<img src="https://raw.githubusercontent.com/Chion82/WeChatMomentStat-Android/master/demo_pics/demo_2.jpg" width="400px">
+
+<img src="https://raw.githubusercontent.com/Chion82/WeChatMomentStat-Android/master/demo_pics/demo_3.jpg" width="400px">
+
+
 Download
 --------
 [WeChatMomentStat Releases](https://github.com/Chion82/WeChatMomentStat-Android/releases)
