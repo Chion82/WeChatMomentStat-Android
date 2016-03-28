@@ -63,9 +63,6 @@ public class SnsStat {
                 UserSnsInfo liker = getUserSnsInfo(like.userId);
                 liker.likeCount++;
             }
-            if (userSnsInfo.sentCommentCount > 0) {
-                userSnsInfo.heatRate = ((double)userSnsInfo.repliedCommentCount)/((double)userSnsInfo.sentCommentCount);
-            }
         }
     }
 
@@ -80,6 +77,9 @@ public class SnsStat {
         coldRank = new ArrayList<UserSnsInfo>();
         for (int i=0;i<userSnsList.size();i++) {
             UserSnsInfo userSnsInfo = userSnsList.get(i);
+            if (userSnsInfo.sentCommentCount > 0) {
+                userSnsInfo.heatRate = ((double)userSnsInfo.repliedCommentCount)/((double)userSnsInfo.sentCommentCount);
+            }
             if (userSnsInfo.sentCommentCount >= 15) {
                 coldRank.add(userSnsInfo);
             }
