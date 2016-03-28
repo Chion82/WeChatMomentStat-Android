@@ -123,13 +123,25 @@ public class SnsStat {
         Collections.sort(heatRank, new Comparator<UserSnsInfo>() {
             @Override
             public int compare(UserSnsInfo lhs, UserSnsInfo rhs) {
-                return (rhs.heatRate - lhs.heatRate)>0?1:-1;
+                if (rhs.heatRate - lhs.heatRate > 0) {
+                    return 1;
+                } else if (rhs.heatRate - lhs.heatRate < 0) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             }
         });
         Collections.sort(coldRank, new Comparator<UserSnsInfo>() {
             @Override
             public int compare(UserSnsInfo lhs, UserSnsInfo rhs) {
-                return (lhs.heatRate - rhs.heatRate)>0?1:-1;
+                if (lhs.heatRate - rhs.heatRate > 0) {
+                    return 1;
+                } else if (lhs.heatRate - rhs.heatRate < 0) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             }
         });
     }
