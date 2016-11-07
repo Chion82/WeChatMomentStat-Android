@@ -56,7 +56,7 @@ public class SnsReader {
     }
 
     protected void getCurrentUserIdFromDatabase(SQLiteDatabase database) throws Throwable {
-        Cursor cursor = database.query("snsExtInfo2", new String[]{"userName"}, "ROWID=?", new String[]{"1"}, "", "", "", "1");
+        Cursor cursor = database.query("snsExtInfo3", new String[]{"userName"}, "ROWID=?", new String[]{"1"}, "", "", "", "1");
         if (cursor.moveToNext()) {
             this.currentUserId = cursor.getString(cursor.getColumnIndex("userName"));
         }
