@@ -75,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
             if (this.error != null) {
                 Toast.makeText(MainActivity.this, R.string.not_rooted, Toast.LENGTH_LONG).show();
                 Log.e("wechatmomentstat", "exception", this.error);
+
+                try {
+                    ((TextView)findViewById(R.id.description_textview_2)).setText("Error: " + this.error.getMessage());
+                } catch (Throwable e) {
+                    Log.e("wechatmomentstat", "exception", e);
+                }
+
                 return;
             }
             Share.snsData = snsStat;
